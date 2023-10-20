@@ -1,9 +1,19 @@
 const express = require('express')
 const router = express.Router()
-const { fetchMusicians, fetchMusician, createMusician,fetchCategoriesByMusicianId } = require('../database')
+const { fetchMusicians, fetchCategories, fetchMusician, createMusician,fetchCategoriesByMusicianId } = require('../database')
 
-router.get('/', (req, res) => {
-  res.render('musicians/index')
+router.get('/', async (req, res) => {
+  try {
+    const musicians = await fetchMusicians();
+    const categories = await fetchCategories();
+    res.render('musicians/index', {
+      musicians: musicians,
+      categories: categories
+    })
+  } catch(err) {
+    res.redirect('/')
+    console.error(err)
+  }
 })
 
 router.get('/:mid', async (req, res) => {

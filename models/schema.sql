@@ -29,16 +29,17 @@ CREATE TABLE musician_categories (
 INSERT INTO musicians (name)
 VALUES
 ('JohnDoe'),
-('Test1'),
-('Test2'),
-('Test3'),
-('Test4'),
-('Test5'),
-('Test6'),
-('Test7'),
-('Test8'),
-('Test9'),
-('Test10')
+('Frank'),
+('j'),
+('Edgar'),
+('dj'),
+('Xiong'),
+('eEnNz'),
+('Sun'),
+('NingJiangJiangXing'),
+('mapleSyrup'),
+('Lee'),
+('Br')
 ;
 
 INSERT INTO categories (name)
@@ -75,5 +76,7 @@ VALUES
 (9,1),
 (9,6),
 (10,5),
-(11,6)
+(11,6),
+(11,4),
+(12,3)
 ;

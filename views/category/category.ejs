@@ -1,0 +1,9 @@
+<h2><%= category.name %></h2>
+
+<div>
+  <ul>
+    <% musicians.forEach(musician => { %>
+      <li><a href='/musicians/<%= musician.mid %>'><%= musician.name %></a></li>
+    <% }) %>
+  </ul>
+</div>
