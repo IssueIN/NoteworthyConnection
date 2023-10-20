@@ -13,6 +13,18 @@ const pool = mysql.createPool({
   database: process.env.DATABASE_NAME
 }).promise()
 
+async function testConnection() {
+  try {
+      const connection = await pool.getConnection();
+      console.log("Successfully connected to the database.");
+      connection.release(); // Always release the connection after usage
+  } catch (error) {
+      console.error("Error connecting to the database:", error);
+  }
+}
+
+testConnection();
+
 async function fetchMusicians() {
   try {
     const [results] = await pool.query("SELECT * FROM musicians");
@@ -29,7 +41,7 @@ async function fetchMusician(mid) {
     WHERE mid= ? `, [mid])
     return results[0];
   } catch (err){
-    console.error("Error fetching musicians by id:", id)
+    console.error("Error fetching musicians by id:", mid)
   }
 }
 
@@ -53,7 +65,7 @@ async function fetchCategoriesByMusicianId(mid) {
     `, [mid]);
     return results;
   } catch (err) {
-    console.error(`Error fetching categories for musician ID ${musicianId}:`, err);
+    console.error(`Error fetching categories for musician ID ${mid}:`, err);
   }
 }
 
