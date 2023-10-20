@@ -3,6 +3,7 @@ if(process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
+const fs = require('fs')
 const mysql = require('mysql2')
 
 const pool = mysql.createPool({
@@ -10,7 +11,10 @@ const pool = mysql.createPool({
   port: process.env.DATABASE_PORT,
   user: process.env.DATABASE_USER,
   password: process.env.DATABASE_PASSWORD,
-  database: process.env.DATABASE_NAME
+  database: process.env.DATABASE_NAME,
+  ssl: {
+    ca: fs.readFileSync(__dirname + '/certs/global-bundle.pem')
+  }
 }).promise()
 
 async function testConnection() {
