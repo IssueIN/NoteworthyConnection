@@ -36,7 +36,7 @@ VALUES
 ('Xiong'),
 ('eEnNz'),
 ('Sun'),
-('NingJiangJiangXing'),
+('NingXiangJiangXing'),
 ('mapleSyrup'),
 ('Lee'),
 ('Br')

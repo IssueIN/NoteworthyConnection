@@ -1,3 +1,12 @@
-LETS CONNECT!
+<h2>LETS CONNECT!</h2>
 
-<div>preferred musician: <%= name ? name : 'NOT SELECTED' %> &#9829;</div>
+<div>preferred musician: <%= musicianName ? musicianName : 'NOT SELECTED' %> &#9829;</div>
+
+<form action="/connect/submit" method="post">
+  <label>REACH US!</label>
+  <input type="text" name="name" placeholder="your name" required>
+  <input type="email" name="email" placeholder="your email" required>
+  <input type="text" name="musician" placeholder='preferred musician' value=<%= musicianName ? musicianName : ''%>>
+  <textarea name="message" placeholder="Your message" required></textarea>
+  <button type="submit">CONNECT!</button>
+</form>
