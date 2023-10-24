@@ -1,5 +1,5 @@
 --TEST USE LINE
---Remeber: mid and cid
+--Remeber: mid and cid and cuid
 DROP DATABASE noteworthy;
 
 CREATE DATABASE noteworthy;
@@ -25,6 +25,30 @@ CREATE TABLE musician_categories (
   FOREIGN KEY (mid) REFERENCES musicians(mid),
   FOREIGN KEY (cid) REFERENCES categories(cid)
 );
+
+CREATE TABLE clients (
+  client_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  createdAt TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE client_messages (
+  message_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  client_id INTEGER,
+  message TEXT NOT NULL,
+  sentAt TIMESTAMP NOT NULL DEFAULT NOW(),
+  FOREIGN KEY (client_id) REFERENCES clients(client_id)
+);
+
+CREATE TABLE client_preferred_musicians (
+  client_id INTEGER,
+  mid INTEGER,
+  PRIMARY KEY (client_id, mid),
+  FOREIGN KEY (client_id) REFERENCES clients(client_id),
+  FOREIGN KEY (mid) REFERENCES musicians(mid)
+);
+
 
 INSERT INTO musicians (name)
 VALUES

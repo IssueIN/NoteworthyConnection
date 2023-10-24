@@ -30,12 +30,12 @@ async function testConnection() {
 testConnection();
 
 
-async function fetchObjects(objectName) {
+async function fetchObjects(tableName) {
   try {
-    const [results] = await pool.query(`SELECT * FROM ${objectName}`);
+    const [results] = await pool.query(`SELECT * FROM ${tableName}`);
     return results;
   } catch (err) {
-    console.error(`Error fetching ${objectName}: `, err)
+    console.error(`Error fetching ${tableName}: `, err)
   }
 }
 
@@ -47,24 +47,44 @@ async function fetchCategories() {
   return fetchObjects('categories')
 }
 
-async function fetchObject(id, objectName, idName) {
+async function fetchObject(col, tableName) {
   try {
     const [results] = await pool.query(`SELECT * 
-    FROM ${objectName} 
-    WHERE ${idName}= ? `, [id])
+    FROM ${tableName} 
+    WHERE ${Object.keys(col)[0]}= ? `, [Object.values(col)[0]])
     return results[0];
   } catch (err){
-    console.error("Error fetching musicians by id:", id)
+    console.error("Error fetching musicians by id:", Object.values(col)[0])
   }
 }
 
 async function fetchMusician(mid) {
-  return fetchObject(mid, 'musicians', 'mid')
+  return fetchObject({mid}, 'musicians')
 }
 
 async function fetchCategory(cid) {
-  return fetchObject(cid, 'categories', 'cid')
+  return fetchObject({cid}, 'categories')
 }
+
+async function fetchMusicianId(name) {
+  return fetchObject({name}, 'musicians')
+}
+
+async function fetchMusicianIds(names) {
+  if (!Array.isArray(names) || names.length === 0) {
+    throw new Error("Invalid names input");
+  }
+
+  const placeholders = names.map(() => '?').join(',');
+  try {
+    const [results] = await pool.query(`SELECT mid FROM musicians WHERE name IN (${placeholders})`, names);
+    return results.map(row => row.mid);
+  } catch (err) {
+    console.error("Error fetching musician IDs:", err);
+    return [];
+  }
+}
+
 
 async function createMusician(name) {
   const [result] =await pool.query(`
@@ -90,28 +110,68 @@ async function createMusician(name) {
 //   }
 // }
 
-async function fetchAbyBid(A_objectName, B_objectName, Bid) {
-  const A_Short = A_objectName.substring(0,1)
-  const B_Short = B_objectName.substring(0,1)
+// async function fetchAbyBid(A_tableName, B_tableName, Bid) {
+//   const A_Short = A_tableName.substring(0,1)
+//   const B_Short = B_tableName.substring(0,1)
+//   try {
+//     const [results] = await pool.query(`
+//       SELECT ${A_Short}.${A_Short}id, ${A_Short}.name 
+//       FROM ${A_tableName} ${A_Short}
+//       INNER JOIN musician_categories ${B_Short}${A_Short} ON ${A_Short}.${A_Short}id = ${B_Short}${A_Short}.${A_Short}id
+//       WHERE ${B_Short}${A_Short}.${B_Short}id = ?
+//     `, [Bid]);
+//     return results;
+//   } catch (err) {
+//     console.error(`Error fetching ${A_tableName} for ${B_tableName} ID ${Bid}:`, err);
+//   }
+// }
+
+async function fetchAbyBid(A_tableName, A_primaryKey, B_tableName, B_primaryKey, linkTableName, Bid) {
   try {
-    const [results] = await pool.query(`
-      SELECT ${A_Short}.${A_Short}id, ${A_Short}.name 
-      FROM ${A_objectName} ${A_Short}
-      INNER JOIN musician_categories ${B_Short}${A_Short} ON ${A_Short}.${A_Short}id = ${B_Short}${A_Short}.${A_Short}id
-      WHERE ${B_Short}${A_Short}.${B_Short}id = ?
+    const [results] = await pool.query(`SELECT A.* 
+      FROM ${A_tableName} AS A
+      INNER JOIN ${linkTableName} AS Link ON A.${A_primaryKey} = Link.${A_primaryKey}
+      WHERE Link.${B_primaryKey} = ?
     `, [Bid]);
-    return results;
+    return results
   } catch (err) {
-    console.error(`Error fetching ${A_objectName} for ${B_objectName} ID ${Bid}:`, err);
+    console.error(`Error fetching ${A_tableName} for ${B_tableName} ID ${Bid}:`, err);
   }
 }
 
 async function fetchCategoriesByMusicianId(mid) {
-  return fetchAbyBid('categories', 'musicians', mid)
+  return fetchAbyBid('categories','cid', 'musicians','mid', 'musician_categories', mid)
 }
 
 async function fetchMusiciansByCategoryId(cid) {
-  return fetchAbyBid('musicians', 'categories', cid)
+  return fetchAbyBid('musicians','mid', 'categories','cid', 'musician_categories', cid)
+}
+
+async function createObject(tableName, data) {
+  const columns = Object.keys(data).join(',');
+  const values = Object.values(data);
+  const placeholders = new Array(values.length).fill('?').join(',')
+
+  const sql_query = `INSERT INTO ${tableName} (${columns}) VALUES ${placeholders}`;
+
+  try {
+    const [results] = await pool.query(sql_query, values);
+    return results.insertId
+  } catch(err) {
+    console.error(`Error creating ${tableName} Object`);
+  }
+}
+
+async function createClient(name, email) {
+  return createObject('clients', {name, email})
+}
+
+async function createClientMessage(client_id, message) {
+  return createObject('client_messages', { client_id, message });
+}
+
+async function createClientPreferredMusician(client_id, mid) {
+  return createObject('client_preferred_musicians', { client_id, mid });
 }
 
 // fetchCategoriesByMusicianId(1)
@@ -143,9 +203,14 @@ module.exports = {
   fetchCategories,
   fetchMusician,
   fetchCategory,
+  fetchMusicianId,
+  fetchMusicianIds,
   createMusician,
   fetchCategoriesByMusicianId,
-  fetchMusiciansByCategoryId
+  fetchMusiciansByCategoryId,
+  createClient,
+  createClientMessage,
+  createClientPreferredMusician
 }
 
 

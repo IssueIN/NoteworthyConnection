@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
 
 function sendEmail({ to, subject, text }, callback) {
   const mailOptions = {
-    from:  `NoteworthyWebDevTeam <${process.env.EMAIL_USER}>`,
+    from: `NoteworthyEmailBot<${process.env.EMAIL}>`,
     to: to,
     subject: subject,
     text: text
@@ -31,9 +31,11 @@ function emailText(name, email, musician, message) {
 
   Connection from: ${name} <${email}>
   Their preferred musician: ${musician}
-  Their message: ${message}
-
-  Best,
+  Their message:
+  --------------------------------- 
+  ${message}
+  ---------------------------------
+  Cheers,
   WebDevTeam
   `
 }
