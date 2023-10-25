@@ -3,10 +3,37 @@
 <div>preferred musician: <%= musicianName ? musicianName : 'NOT SELECTED' %> &#9829;</div>
 
 <form action="/connect/submit" method="post">
-  <label>REACH US!</label>
+  <div>REACH US!</div>
+
   <input type="text" name="name" placeholder="your name" required>
   <input type="email" name="email" placeholder="your email" required>
-  <input type="text" name="musician" placeholder='preferred musician' value=<%= musicianName ? musicianName : ''%>>
+
+  <div> </div>
+  <label>Your Preferred Musicians</label>
+  <div id="musicianList">
+    <div class="musicianDropdown">
+      <select name="musicians[]">
+        <% musicians.forEach(musician => { %>
+          <option value="<%= musician.mid %>" 
+            <%= musicianName && musician.name === musicianName ? 'selected' : '' %>
+          >
+            <%= musician.name %>
+          </option>
+        <% }) %>
+      </select>
+      <button type="button" onclick="removeDropdown(this)">Remove</button>
+    </div>
+  </div>
+  <button type="button" onclick="addDropdown()">Add Musician</button>
+
+  <div> </div>
   <textarea name="message" placeholder="Your message" required></textarea>
+  
+  <div> </div>
   <button type="submit">CONNECT!</button>
 </form>
+
+<div id="musiciansData" data-musicians='<%- JSON.stringify(musicians) %>' style="display: none;"></div>
+
+
+<script src="javascripts/addRemoveButton.js"></script>

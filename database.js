@@ -152,13 +152,13 @@ async function createObject(tableName, data) {
   const values = Object.values(data);
   const placeholders = new Array(values.length).fill('?').join(',')
 
-  const sql_query = `INSERT INTO ${tableName} (${columns}) VALUES ${placeholders}`;
+  const sql_query = `INSERT INTO ${tableName} (${columns}) VALUES (${placeholders})`;
 
   try {
     const [results] = await pool.query(sql_query, values);
     return results.insertId
   } catch(err) {
-    console.error(`Error creating ${tableName} Object`);
+    console.error(`Error creating ${tableName} Object`, err);
   }
 }
 

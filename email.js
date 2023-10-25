@@ -23,14 +23,15 @@ function sendEmail({ to, subject, text }, callback) {
   transporter.sendMail(mailOptions, callback);
 }
 
-function emailText(name, email, musician, message) {
+function emailText(name, email, musicians, message) {
+  const musiciansArray = musicians.join(',');
   return `
   Hi NoteworthyConnection,
 
   This is a test.
 
   Connection from: ${name} <${email}>
-  Their preferred musician: ${musician}
+  Their preferred musician: ${musiciansArray}
   Their message:
   --------------------------------- 
   ${message}
