@@ -7,9 +7,14 @@ const {fetchMusicians, fetchMusician, fetchMusicianId, createClient , createClie
 router.get('/', async (req, res) => {
   const musicians = await fetchMusicians();
   const musicianName = req.query.p
+  const navigationJSON = {
+    noteworthy : '/',
+    connect: '/connect'
+  }
   res.render('connect/index', {
     musicianName: musicianName,
-    musicians: musicians
+    musicians: musicians,
+    navigation: navigationJSON
   })
 })
 

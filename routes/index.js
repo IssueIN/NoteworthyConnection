@@ -6,11 +6,23 @@ router.get('/', (req, res) => {
 })
 
 router.get('/about-us', (req, res) => {
-  res.render('main/aboutUs')
+  const navigationJSON = {
+    noteworthy: '/',
+    'About Us': '/about-us'
+  }
+  res.render('main/aboutUs', {
+    navigation: navigationJSON
+  })
 })
 
 router.get('/newsletter', (req, res) => {
-  res.render('main/newsletter')
+  const navigationJSON = {
+    noteworthy: '/',
+    newsletter: '/newsletter'
+  }
+  res.render('main/newsletter', {
+    navigation: navigationJSON
+  })
 })
 
 module.exports = router

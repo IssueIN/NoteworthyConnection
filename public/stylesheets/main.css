@@ -1,0 +1,16 @@
+.navbar {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 5px;
+}
+
+.navbar li {
+  display: flex;
+  align-items: center;
+}
+
+.navbar a {
+  text-decoration: none;
+  padding: 6px 10px;
+}
