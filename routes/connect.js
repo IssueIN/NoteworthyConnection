@@ -6,6 +6,12 @@ const {fetchMusicians, fetchMusician, fetchMusicianId, createClient , createClie
 
 router.get('/', async (req, res) => {
   const musicians = await fetchMusicians();
+  let filteredMusicians = musicians.map(musician => {
+    return {
+        mid: musician.mid,
+        name: musician.name
+    };
+  });
   const musicianName = req.query.p
   const navigationJSON = {
     noteworthy : '/',
@@ -13,7 +19,7 @@ router.get('/', async (req, res) => {
   }
   res.render('connect/index', {
     musicianName: musicianName,
-    musicians: musicians,
+    musicians: filteredMusicians,
     navigation: navigationJSON
   })
 })

@@ -1,11 +1,11 @@
 <h1><%= musician.name %></h1>
-<div>
-  <div>Categories</div>
-  <ul>
+<div><span><%= musician.description %></span></div>
+<div class="musicianCategory">
+  <ul class="musicianCategoryList">
     <% categories.forEach(category => { %>
-      <li><a href="/category/<%= category.cid %>"><%= category.name %></a></li>
+      <li><a href="/category/<%= category.cid %>">&#x23;<%= category.name %></a></li>
     <% }) %>
-    </ul>
-  </diV>
+  </ul>
+</div>
 
-  <div><a href="/connect?p=<%= musician.name %>">CONNECT!</a></div>
+<div><a href="/connect?p=<%= musician.name %>">CONNECT!</a></div>

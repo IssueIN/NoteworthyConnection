@@ -1,11 +1,20 @@
-.navbar {
+.navbar, .musicianCategoryList {
   list-style-type: none;
   padding: 0;
   display: flex;
   gap: 5px;
 }
 
-.navbar li {
+.musicianCategoryList {
+  margin: 0px;
+  margin-bottom: 20px;
+}
+
+.musicianCategory {
+  padding-top: 15px;
+}
+
+.navbar li, .musicianCategoryList li {
   display: flex;
   align-items: center;
 }
@@ -14,3 +23,5 @@
   text-decoration: none;
   padding: 6px 10px;
 }
+
+

@@ -85,7 +85,6 @@ async function fetchMusicianIds(names) {
   }
 }
 
-
 async function createMusician(name) {
   const [result] =await pool.query(`
     INSERT INTO musicians (name)
