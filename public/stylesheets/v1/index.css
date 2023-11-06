@@ -53,6 +53,15 @@
 .index--slogan-container {
   align-self: center;
   margin-top: 40px;
+  width: 60%;
+  height: 220px;
+}
+
+.index--slogan-container img {
+  width: 100%;
+  height: auto;  
+  object-fit: contain;
+  display: block;
 }
 
 .index--connect-button {
