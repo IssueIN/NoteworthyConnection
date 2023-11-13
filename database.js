@@ -47,6 +47,15 @@ async function fetchCategories() {
   return fetchObjects('categories')
 }
 
+async function fetchPrimaryCategories() {
+  try {
+    const [results] = await pool.query(`SELECT * FROM categories LIMIT 6`);
+    return results;
+  } catch (err) {
+    console.error(`Error fetching categories: `, err)
+  }
+}
+
 async function fetchObject(col, tableName) {
   try {
     const [results] = await pool.query(`SELECT * 
@@ -202,6 +211,7 @@ module.exports = {
   fetchCategories,
   fetchMusician,
   fetchCategory,
+  fetchPrimaryCategories,
   fetchMusicianId,
   fetchMusicianIds,
   createMusician,

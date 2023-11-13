@@ -1,5 +1,5 @@
 --TEST USE LINE
---Remeber: mid and cid and cuid
+--Remeber: mid and cid and clid
 DROP DATABASE noteworthy;
 
 CREATE DATABASE noteworthy;
@@ -30,7 +30,7 @@ CREATE TABLE musician_categories (
 );
 
 CREATE TABLE clients (
-  client_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  clid INTEGER PRIMARY KEY AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL UNIQUE,
   createdAt TIMESTAMP NOT NULL DEFAULT NOW()
@@ -38,17 +38,17 @@ CREATE TABLE clients (
 
 CREATE TABLE client_messages (
   message_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-  client_id INTEGER,
+  clid INTEGER,
   message TEXT NOT NULL,
   sentAt TIMESTAMP NOT NULL DEFAULT NOW(),
-  FOREIGN KEY (client_id) REFERENCES clients(client_id)
+  FOREIGN KEY (clid) REFERENCES clients(clid)
 );
 
 CREATE TABLE client_preferred_musicians (
-  client_id INTEGER,
+  clid INTEGER,
   mid INTEGER,
-  PRIMARY KEY (client_id, mid),
-  FOREIGN KEY (client_id) REFERENCES clients(client_id),
+  PRIMARY KEY (clid, mid),
+  FOREIGN KEY (clid) REFERENCES clients(clid),
   FOREIGN KEY (mid) REFERENCES musicians(mid)
 );
 
@@ -69,44 +69,63 @@ VALUES
 ('Br', 'Br@noteworthy.com','test', 'Every element has a story, and as a chemist named Br, I delve deep into the molecular world to uncover nature''s secrets.')
 ;
 
-
-
-
 INSERT INTO categories (name)
 VALUES
 ('Arranger'),
 ('Mixing Engineer'),
 ('Singer'),
 ('Instrumentalist'),
-('Singer-songwriter'),
-("beatmaker")
+('Songwriter'),
+('Beatmaker'),
+('Film Scorer'),
+('Game Scorer'),
+('Electronic Musician'),
+('Sound Engineer'),
+('Audio Editor'),
+('Electric Guitarist'),
+('Acoustic Guitarist'),
+('Drummer'),
+('Percussionist'),
+('Pianist'),
+('Keyboardist'),
+('Bassist'),
+('String Player'),
+('Wind Player'),
+('Lyricist'),
+('Composer'),
+('Chord Progression')
 ;
 
 INSERT INTO musician_categories(mid, cid)
 VALUES
-(1,2),
-(1,3),
-(1,6),
-(2,4),
-(2,5),
-(2,2),
-(3,1),
-(3,3),
-(4,5),
-(4,1),
-(4,2),
-(5,4),
-(5,5),
-(6,1),
-(6,3),
-(7,1),
-(7,2),
-(8,3),
-(8,2),
-(9,1),
-(9,6),
-(10,5),
-(11,6),
-(11,4),
-(12,3)
+(4, 17),
+(1, 14),
+(7, 22),
+(2, 3),
+(11, 10),
+(5, 21),
+(10, 2),
+(12, 9),
+(6, 11),
+(9, 7),
+(3, 5),
+(2, 18),
+(1, 19),
+(8, 20),
+(7, 8),
+(10, 13),
+(5, 4),
+(3, 16),
+(9, 1),
+(11, 23),
+(8, 6),
+(4, 2),
+(6, 15),
+(12, 12),
+(2, 22),
+(1, 8),
+(7, 3),
+(5, 13),
+(11, 18),
+(10, 20)
 ;

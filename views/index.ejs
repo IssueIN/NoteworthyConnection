@@ -19,3 +19,11 @@
     <a href="/connect">CONNECT!</a>
   </div>  
 </div>
+
+<div>
+  <ul>
+    <% categories.forEach(category => { %>
+      <li><a href="/category/<%= category.cid %>"><%= category.name %></a></li>
+    <% }) %>
+  </ul>
+</div>
