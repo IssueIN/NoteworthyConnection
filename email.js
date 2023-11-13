@@ -24,7 +24,7 @@ function sendEmail({ to, subject, text }, callback) {
 }
 
 function emailText(name, email, musicians, message) {
-  const musiciansArray = musicians.join(',');
+  const musiciansArray = musicians.map(musician => musician.name).join(', ');
   return `
   Hi NoteworthyConnection,
 

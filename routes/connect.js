@@ -33,8 +33,6 @@ router.post('/submit',async (req, res) => {
     subject: `Connect Request: From ${name}`,
     text: emailCotentText
   };
-
-  console.log(musicians)
   
   try {
     const clientId = await createClient(name, email);
@@ -44,15 +42,18 @@ router.post('/submit',async (req, res) => {
       await createClientPreferredMusician(clientId, mid);
     }
 
-    sendEmail(emailContent, (error, info) => {
-      if (error) {
-        console.log(error);
-        res.send('Email Error');
-      } else {
-        console.log('Email sent: ' + info.response);
-        res.send('YOU ARE CONNECTED!');
-      }
-    });
+    if (process.env.ENABLE_CONNECT === 'true') {
+      sendEmail(emailContent, (error, info) => {
+        if (error) {
+          console.log(error);
+          res.status(500).send('Email Error');
+        } else {
+          res.send('YOU ARE CONNECTED!');
+        }
+      });
+    } else {
+      res.send('Connect is currently disabled.');
+    }
   } catch (err) {
     console.error(err)
   }
