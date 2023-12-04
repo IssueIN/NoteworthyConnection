@@ -1,0 +1,12 @@
+<% if(typeof navigation !== 'undefined' && navigation !== null) { %>
+  <ul class="navbar">
+    <% for(let name in navigation) { %>
+      <li>
+        <a href="<%= navigation[name] %>"><%= name %></a>
+        <% if (Object.keys(navigation)[Object.keys(navigation).length - 1] !== name) {%>
+          <span>&rArr;</span>
+        <% } %>
+      </li>
+    <% } %>
+  </ul>
+<% } %>

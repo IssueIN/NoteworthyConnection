@@ -2,9 +2,11 @@
 @import 'v1/index.css';
 @import 'v1/font.css';
 @import 'v1/_media_index.css';
+@import 'v1/variables.css';
 
 body {
-  font-family: "Gill Sans"
+  font-family: "Gill Sans";
+  background-color: var(--background-color);
 }
 
 .navbar, .musicianCategoryList {

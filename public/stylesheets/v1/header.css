@@ -5,8 +5,8 @@
 .header-container {
   display: flex;
   align-items: center;
-  padding-top: 16px;
-  padding-left: 24px;
+  padding-top: 10px;
+  padding-left: 18px;
 }
 
 .header--logo-container {
