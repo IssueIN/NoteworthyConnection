@@ -1,5 +1,8 @@
 .header-container a {
   text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
 }
 
 .header-container {
@@ -10,5 +13,9 @@
 }
 
 .header--logo-container {
+  padding-right: 10px;
+}
+
+.header--logo-text-container{
   padding-right: 10px;
 }
