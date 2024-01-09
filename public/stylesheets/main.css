@@ -1,8 +1,8 @@
-@import 'v1/header.css';
-@import 'v1/index.css';
-@import 'v1/font.css';
-@import 'v1/_media_index.css';
-@import 'v1/variables.css';
+@import 'shared/header.css';
+@import 'shared/index.css';
+@import 'shared/font.css';
+@import 'shared/_media_index.css';
+@import 'shared/variables.css';
 
 body {
   font-family: "Gill Sans";

@@ -1,0 +1,14 @@
+.header-container a {
+  text-decoration: none;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-left: 18px;
+}
+
+.header--logo-container {
+  padding-right: 10px;
+}

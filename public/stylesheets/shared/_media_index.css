@@ -1,0 +1,12 @@
+@media (max-width: 768px) {
+  .index--navigation-container {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+
+  .index--slogan-container {
+    margin-top: 60px;
+    width: 80%;
+    height: 120px;
+  }
+}
