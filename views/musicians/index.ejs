@@ -1,17 +1,21 @@
 <h2>Discover Musicians</h2>
 
-<div>categories</div>
-<ul>
-  <% categories.forEach(category => { %>
-    <li><a href="/category/<%= category.cid %>"><%= category.name %></a></li>
-    <% })%>
-</ul>
-
 <div>musicians</div>
 <div>
   <ul>
     <% musicians.forEach(musician => { %>
-      <li><a href='/musicians/<%= musician.mid %>'><%= musician.name %></a></li>
+      <li>
+        <a href='/musicians/<%= musician.mid %>'><%= musician['name_' + lang] %></a>
+      </li>
     <% }) %>
   </ul>
 </div>
+
+<div>categories</div>
+<ul>
+  <% categories.forEach(category => { %>
+    <li>
+      <a href="/category/<%= category.cid %>"><%= category['name_' + lang] %></a>
+    </li>
+    <% })%>
+</ul>

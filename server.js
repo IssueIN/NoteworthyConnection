@@ -27,6 +27,10 @@ app.use(expressLayouts)
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(middleware.handle(i18next));
+app.use((req, res, next) => {
+  req.lang = req.language.split('-')[0];
+  next();
+});
 
 app.use('/', indexRouter)
 app.use('/musicians', musiciansRouter)

@@ -5,14 +5,16 @@ const { fetchMusicians, fetchCategories, fetchMusician, createMusician,fetchCate
 router.get('/', async (req, res) => {
   const navigationJSON = {
     noteworthy: '/',
-    musicians: '/musicians'
   }
+  const musicians_key = req.t('musicians')
+  navigationJSON[musicians_key] = '/musicians';
   try {
     const musicians = await fetchMusicians();
     const categories = await fetchCategories();
     res.render('musicians/index', {
       musicians: musicians,
       categories: categories,
+      lang: req.lang,
       navigation: navigationJSON
     })
   } catch(err) {
@@ -28,13 +30,15 @@ router.get('/:mid', async (req, res) => {
     const categories = await fetchCategoriesByMusicianId(mid)
     const navigationJSON = {
       noteworthy: '/',
-      musicians: '/musicians'
     };
-    navigationJSON[musician.name] = `/musicians/${mid}`;
+    const musicians_key = req.t('musicians')
+    navigationJSON[musicians_key] = '/categories';
+    navigationJSON[musician['name_' +  req.lang]] = `/musicians/${mid}`;
 
     res.render('musicians/musician', {
       musician : musician,
       categories: categories,
+      lang: req.lang,
       navigation: navigationJSON
     })
   } catch (err) {

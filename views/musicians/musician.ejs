@@ -1,11 +1,13 @@
-<h1><%= musician.name %></h1>
-<div><span><%= musician.description %></span></div>
+<h1><%= musician['name_' + lang] %></h1>
+<div><span><%= musician['description_' + lang] %></span></div>
 <div class="musicianCategory">
   <ul class="musicianCategoryList">
     <% categories.forEach(category => { %>
-      <li><a href="/category/<%= category.cid %>">&#x23;<%= category.name %></a></li>
+      <li>
+        <a href="/category/<%= category.cid %>">&#x23;<%= category['name_' + lang] %></a>
+      </li>
     <% }) %>
   </ul>
 </div>
 
-<div><a href="/connect?p=<%= musician.name %>">CONNECT!</a></div>
+<div><a href="/connect?p=<%= musician['name_' + lang] %>">CONNECT!</a></div>

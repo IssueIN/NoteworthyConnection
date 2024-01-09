@@ -11,7 +11,8 @@ router.get('/', async (req, res) => {
     const categories = await fetchCategories()
     res.render('category/index', {
       categories: categories,
-      navigation: navigationJSON
+      navigation: navigationJSON,
+      lang: req.lang
     })
   } catch (err) {
     console.error(err)
@@ -23,16 +24,19 @@ router.get('/:id', async (req, res) => {
   try {
     const musicians = await fetchMusiciansByCategoryId(cid);
     const category = await fetchCategory(cid)
+
     const navigationJSON = {
-      noteworthy: '/',
-      categories: '/category'
+      noteworthy: '/' 
     };
-    navigationJSON[category.name] = `/category/${cid}`;
+    const categories_key = req.t('categories')
+    navigationJSON[categories_key] = '/category';
+    navigationJSON[category['name_' + req.lang]] = `/category/${cid}`;
 
     res.render('category/category', {
       category: category,
       musicians: musicians,
-      navigation: navigationJSON
+      navigation: navigationJSON,
+      lang: req.lang
     })
   } catch (err) {
     console.error(err)

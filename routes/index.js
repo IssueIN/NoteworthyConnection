@@ -5,7 +5,8 @@ const { fetchPrimaryCategories } = require('../database')
 router.get('/', async (req, res) => {
   const categories = await fetchPrimaryCategories();
   res.render('index', {
-    categories: categories
+    categories: categories,
+    lang: req.lang
   })
 })
 

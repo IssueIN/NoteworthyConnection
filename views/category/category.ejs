@@ -3,7 +3,9 @@
 <div>
   <ul>
     <% musicians.forEach(musician => { %>
-      <li><a href='/musicians/<%= musician.mid %>'><%= musician.name %></a></li>
+      <li>
+        <a href='/musicians/<%= musician.mid %>'><%= musician['name_' + lang] %></a>
+      </li>
     <% }) %>
   </ul>
 </div>

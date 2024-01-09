@@ -15,7 +15,7 @@
     <img src="/img/v1_background.jpg" height="220">
   </div> -->
   <div>
-    <img src="/img/index_tape.jpg" height="220">
+    <img src="/img/index_tape.png" height="220">
   </div>
   
   <div class="index--connect-button">
@@ -26,7 +26,9 @@
 <div>
   <ul>
     <% categories.forEach(category => { %>
-      <li><a href="/category/<%= category.cid %>"><%= category.name %></a></li>
+      <li>
+        <a href="/category/<%= category.cid %>"><%= category['name_' + lang] %></a>
+      </li>
     <% }) %>
   </ul>
 </div>
