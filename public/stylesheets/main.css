@@ -7,9 +7,6 @@
 body {
   font-family: "Gill Sans";
   background-color: var(--background-color);
-  background-image: url('/img/index_tape_test.jpg');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
 }
 
 .navbar, .musicianCategoryList {
