@@ -32,7 +32,7 @@ router.get('/:mid', async (req, res) => {
       noteworthy: '/',
     };
     const musicians_key = req.t('musicians')
-    navigationJSON[musicians_key] = '/categories';
+    navigationJSON[musicians_key] = '/musicians';
     navigationJSON[musician['name_' +  req.lang]] = `/musicians/${mid}`;
 
     res.render('musicians/musician', {
