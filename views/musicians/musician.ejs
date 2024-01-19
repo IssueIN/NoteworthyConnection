@@ -1,5 +1,10 @@
 <h1><%= musician['name_' + lang] %></h1>
+<div><span><%= musician['education_' + lang] %></span></div>
+<div><span><%= t('skilledin') + musician['styles_' + lang] %></span></div>
 <div><span><%= musician['description_' + lang] %></span></div>
+<div><%- musician['achievements_' + lang].replace(/。/g, "。<br>") %></div>
+<div><span><%= musician['ideology_' + lang] %></span></div>
+
 <div class="musicianCategory">
   <ul class="musicianCategoryList">
     <% categories.forEach(category => { %>
