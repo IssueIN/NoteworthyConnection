@@ -194,3 +194,51 @@
   font-size: 1.2rem;
   text-decoration: none;
 }
+
+
+
+.index--manual{
+  height: 640px;
+  display: flex;
+  align-items: flex-start;
+  background-image: url(../../img/NOTEWORTHY_manual_bg.png);
+  background-repeat: no-repeat;
+  background-size: 40% auto;
+}
+
+.index--manual-title{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+  font-size: 2.25rem;
+}
+
+.index--comment{
+  height:720px;
+  background-image: 
+  url(../../img/index_comment_section/1.png), 
+  url(../../img/index_comment_section/2.png), 
+  url(../../img/index_comment_section/3.png), 
+  url(../../img/index_comment_section/4.png), 
+  url(../../img/index_comment_section/5.png), 
+  url(../../img/index_comment_section/6.png), 
+  linear-gradient(to right, black 0%, black 70%, white 70%, white 100%);
+  background-repeat:no-repeat;
+  background-size: 
+  45% auto, 
+  20% auto, 
+  40% auto, 
+  10% auto,
+  auto 25%,
+  25% auto, 
+  cover;
+  background-position: 
+  30% 15%, 
+  90% 28%, 
+  15% 85%,
+  58% 85%,
+  83% 84%,
+  70% 50%;
+}
+
