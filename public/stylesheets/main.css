@@ -3,6 +3,7 @@
 @import 'shared/font.css';
 @import 'shared/_media_index.css';
 @import 'shared/variables.css';
+@import 'shared/animation.css';
 
 body {
   font-family: "Gill Sans";
