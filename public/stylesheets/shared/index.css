@@ -191,7 +191,7 @@
 
 .index--category-list li img {
   width: auto; 
-  height: 60%;
+  height: 100%;
 }
 
 .index--category-more{
@@ -257,19 +257,14 @@
 
 .index--comment-profile-container {
   translate: 80px 250px;
-  /* The size of the frame */
-  width: 100px; /* Adjust as needed */
-  height: 100px; /* Adjust as needed */
+  width: 100px; 
+  height: 100px;
 
-  /* Make it round */
   border-radius: 50%;
 
-
-  /* Center the content */
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Ensure the image does not overflow the container */
   overflow: hidden;
 }
 
