@@ -145,6 +145,11 @@
   margin-top: 15px; 
 }
 
+.index--category-list{
+  width: 80%;
+  align-self: center;
+}
+
 .index--category-list ul{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -166,10 +171,17 @@
 }
 
 .index--category-list li div {
-  text-align: center; /* Center the content */
+  text-align: center; 
   font-family: "Source Han Sans";
   font-weight: bolder;
   font-size: 1.2rem;
+}
+
+.index--category-icons-container {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .index--category-list li a{
@@ -178,8 +190,8 @@
 }
 
 .index--category-list li img {
-  width: 60%; 
-  height: auto;
+  width: auto; 
+  height: 60%;
 }
 
 .index--category-more{
@@ -252,27 +264,19 @@
   /* Make it round */
   border-radius: 50%;
 
-  /* Optional: Add a border to look like a frame */
-  border: 3px solid #000; /* Adjust the color and size as needed */
 
   /* Center the content */
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* Optional: if you want to add a shadow like a frame */
-  box-shadow: 0px 0px 5px #000;
-  
   /* Ensure the image does not overflow the container */
   overflow: hidden;
 }
 
 .index--comment-profile-container img {
-  /* Make the image fill the container, and potentially exceed its bounds */
   width: 100%;
   height: auto;
   translate: 0px -20px;
-  /* Center the image in case it's not square */
   display: block;
   margin: auto;
 }

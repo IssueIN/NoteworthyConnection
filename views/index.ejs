@@ -26,31 +26,29 @@
   </div>  
 
   <div class="index--category-container">
-    <div class="index--category-slogan">探 索 你 的 音 乐 人</div>
+    <div class="index--category-slogan"><%= t("categorySlogan") %></div>
     <div class="index--category-list">
       <ul>
         <% categories.forEach(category => { %>
           <li>
             <a href="/category/<%= category.cid %>">
-              <div><img src="/img/cat_icons/<%= category.name_en %>.png" height="100"></div>
+              <div class="index--category-icons-container"><img src="/img/cat_icons/<%= category.name_en %>.png"></div>
               <div><%= category['name_' + lang] %></div>
             </a>
           </li>
         <% }) %>
       </ul>
     </div> 
-    <div class="index--category-more"><a href="/category">更 多</a></div>   
+    <div class="index--category-more"><a href="/category"><%= t("more") %></a></div>   
   </div>
 
   <div class="index--manual">
-    <div class="index--manual-title">使 用 方 法</div>
+    <div class="index--manual-title"><%= t("manualTitle") %></div>
   </div>
 
   <div class="index--comment">
     <div class="index--comment-profile-container"><img src="/img/j.jpg"></div>
   </div>
 </div>
-
-
 
 <script src="/javascripts/indexVideo.js"></script>
