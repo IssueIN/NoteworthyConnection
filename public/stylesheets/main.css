@@ -4,6 +4,7 @@
 @import 'shared/_media_index.css';
 @import 'shared/variables.css';
 @import 'shared/animation.css';
+@import 'shared/categoryCarousel.css';
 
 body {
   font-family: "Gill Sans";

@@ -124,7 +124,6 @@
 
 
 .index--category-container{
-  background-image: url('../../img/index_cat_bg.png');
   height:720px;
   background-size: 100% auto;
   background-repeat: no-repeat;
@@ -133,6 +132,9 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+
+  position: relative; 
+  overflow: hidden;
 }
 
 .index--category-slogan{
