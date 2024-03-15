@@ -15,13 +15,11 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/about-us', (req, res) => {
-  const navigationJSON = {
-    noteworthy: '/',
-    'About Us': '/about-us'
-  }
-  res.render('main/aboutUs', {
-    navigation: navigationJSON
-  })
+  // const navigationJSON = {
+  //   noteworthy: '/',
+  //   'About Us': '/about-us'
+  // }
+  res.render('main/aboutUs')
 })
 
 router.get('/newsletter', (req, res) => {

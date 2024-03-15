@@ -8,3 +8,14 @@
   src: url("../../font/source-han-sans/23610.otf") format("opentype");
   font-weight: bolder;
 }
+
+/* chao fan zhan jia should not be used for commercial */
+@font-face{
+  font-family: 'Chao Fan Zhan Jia';
+  src: url("../../font/chao-fan-zhan-jia/ChaoFanZhanJia.ttf") format("truetype");
+}
+
+@font-face{
+  font-family: 'Heiti TC Light';
+  src: url("../../font/heitiTC-light/SourceHanSansTC-Light-2.otf") format("opentype");
+}

@@ -5,6 +5,7 @@
 @import 'shared/variables.css';
 @import 'shared/animation.css';
 @import 'shared/categoryCarousel.css';
+@import 'shared/aboutUs.css';
 
 body {
   font-family: "Gill Sans";
