@@ -121,8 +121,6 @@
 
 
 
-
-
 .index--category-container{
   height:720px;
   background-size: 100% auto;
@@ -214,19 +212,96 @@
 .index--manual{
   height: 640px;
   display: flex;
-  align-items: flex-start;
-  background-image: url(../../img/NOTEWORTHY_manual_bg.png);
-  background-repeat: no-repeat;
-  background-size: 40% auto;
+  justify-content:space-between; 
+  align-items: center;
+  background-color: white;
+  background-image: 
+  url(../../img/how_to_use/manual_bg.png); 
+  background-repeat:no-repeat;
+  background-size: 
+  50% auto;
+  background-position: 
+  0% 40%;
 }
 
-.index--manual-title{
+.index--manual-left-container{
+  height: 90%;
+  width: 34%;
+  border-right: 1.5px solid black;
+}
+
+.index--manual-right-container {
+  height: 90%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.index--manual-block{
+  height: 30%;
+  align-items: center;
+  display: flex;
+  font-family: 'Chao Fan Zhan Jia';
+  color: gray;
+  transition: color 0.3s;
+  position: relative
+}
+
+.index--manual-block::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 80%;
+  height: 1px;
+  background-color: transparent; 
+  transition: background-color 0.3s;
+}
+
+.index--manual-block:hover::after {
+  background-color: black; 
+}
+
+.index--manual-block:hover {
+  color: black;
+}
+
+.index--manual-block:hover {
+  border-bottom-color: black;
+}
+
+.index--manual-block .index{
+  height: auto;
+  font-size: 5rem;
+  padding-right: 8%;
+}
+
+.index--manual-block .text{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  font-size: 2.4rem;
+}
+
+.index--manual-block .text > span:first-child {
+  text-align: left;
+}
+
+.index--manual-block .text > span:nth-child(2) {
+  text-align: center;
+}
+
+.index--manual-block .text > span:last-child {
+  text-align: right;
+}
+/* .index--manual-title{
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   font-weight: bold;
   font-size: 2.25rem;
-}
+} */
 
 .index--comment{
   height:720px;

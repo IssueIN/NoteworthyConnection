@@ -32,3 +32,5 @@ function nextSlide(rootSelector) {
 }
 
 nextSlide('.carousel');
+
+
