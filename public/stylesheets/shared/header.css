@@ -19,10 +19,12 @@
 
 .header--logo-container {
   padding-right: 10px;
+  cursor: pointer;
 }
 
 .header--logo-text-container{
   padding-right: 10px;
+  cursor: pointer;
 }
 
 

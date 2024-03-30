@@ -3,6 +3,10 @@
   100% { transform: scale(1.1); } 
 }
 
+.index--category-icons-container{
+  cursor: pointer;
+}
+
 .index--category-icons-container img {
   transform: scale(1);
   transition: transform 0.2s ease-in;

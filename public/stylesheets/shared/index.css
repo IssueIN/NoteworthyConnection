@@ -198,7 +198,8 @@
   font-family: 'Chao Fan Zhan Jia';
   color: gray;
   transition: color 0.3s;
-  position: relative
+  position: relative;
+  cursor: pointer;
 }
 
 .index--manual-block::after {
