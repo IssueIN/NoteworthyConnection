@@ -7,6 +7,11 @@
 
 .header-container {
   display: flex;
+  flex-direction: column;
+}
+
+.header--first-row{
+  display: flex;
   align-items: center;
   padding-top: 10px;
   padding-left: 18px;
@@ -18,4 +23,52 @@
 
 .header--logo-text-container{
   padding-right: 10px;
+}
+
+
+.header--navigation-container {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding-left: 35%;
+  padding-right: 35%;
+  justify-content: space-between;
+}
+
+.header--navigation-container a{
+  text-decoration: none;
+  color:var(--font-color);
+  font-size: 0.9rem;
+  display: block;
+  position: relative;
+  padding: 0.1em 0;
+}
+
+.header--navigation-container a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: var(--font-color);
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+.header--navigation-container a:hover::after,
+.header--navigation-container a:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0.1em, 0);
+}
+
+.header--navigation-container a::after {
+  opacity: 1;
+  transform: scale(0);
+  transform-origin: center;
+}
+
+.header--navigation-container a:hover::after,
+.header--navigation-container a:focus::after {
+  transform: scale(1);
 }

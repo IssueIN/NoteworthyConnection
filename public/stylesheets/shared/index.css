@@ -3,53 +3,6 @@
   flex-direction: column;
 }
 
-.index--navigation-container {
-  display: flex;
-  align-items: center;
-  height: 50px;
-  padding-left: 35%;
-  padding-right: 35%;
-  justify-content: space-between;
-}
-
-.index--navigation-container a{
-  text-decoration: none;
-  color:var(--font-color);
-  font-size: 0.9rem;
-  display: block;
-  position: relative;
-  padding: 0.1em 0;
-}
-
-.index--navigation-container a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0.1em;
-  background-color: var(--font-color);
-  opacity: 0;
-  transition: opacity 300ms, transform 300ms;
-}
-
-.index--navigation-container a:hover::after,
-.index--navigation-container a:focus::after {
-  opacity: 1;
-  transform: translate3d(0, 0.1em, 0);
-}
-
-.index--navigation-container a::after {
-  opacity: 1;
-  transform: scale(0);
-  transform-origin: center;
-}
-
-.index--navigation-container a:hover::after,
-.index--navigation-container a:focus::after {
-  transform: scale(1);
-}
-
 .index--slogan-container {
   align-self: center;
   margin-top: 0px;
