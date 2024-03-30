@@ -11,7 +11,7 @@ body {
   font-family: "Gill Sans";
   background-color: var(--background-color);
   margin: 0px;
-  width: 1263.33px;
+  /* width: 1263.33px; */
   overflow-x: auto;
 }
 
