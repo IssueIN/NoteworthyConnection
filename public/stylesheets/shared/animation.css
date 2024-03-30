@@ -1,8 +1,12 @@
-@keyframes beat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); } 
+@keyframes enlarge {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); } 
 }
 
+.index--category-icons-container img {
+  transform: scale(1);
+  transition: transform 0.2s ease-in;
+}
 .index--category-icons-container:hover img {
-  animation: beat 1s ease-in-out infinite; /* Adjusted duration for smoothness */
+  transform: scale(1.1);
 }
