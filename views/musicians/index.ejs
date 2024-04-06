@@ -1,14 +1,22 @@
-<h2>Discover Musicians</h2>
+<h2 class="musicians-title"><%= t("discoverMusicians") %></h2>
 
-<div>musicians</div>
-<div>
-  <ul>
-    <% musicians.forEach(musician => { %>
-      <li>
-        <a href='/musicians/<%= musician.mid %>'><%= musician['name_' + lang] %></a>
-      </li>
-    <% }) %>
-  </ul>
+<div class="musicians-cards-container">
+  <% musicians.forEach(musician => { %>
+    <a href='/musicians/<%= musician.mid %>' class="musicians-card-link musicians-card">
+      <img src="/img/musician-card-placeholder.png" alt="placeholder" class="musicians-card-img">
+      <div class="musicians-card-content">
+        <div class="--categories">
+          <% musician.categories.forEach(category => { %>
+            <span><%= category['name_' + lang] %></span>
+          <%}); %>
+        </div>
+        <div class="--styles"><%= t('styles') + musician['styles_' + lang] %></div>
+        <div class="--name"><%= musician['name_' + lang] %></div>
+        <div class="--ideology">"<%= musician['ideology_' + lang] %>"</div>
+        <div class="--education"><%= musician['education_' + lang] %></div>
+      </div>
+    </a>
+  <% }) %>
 </div>
 
 <div>categories</div>

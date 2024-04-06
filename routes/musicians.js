@@ -6,6 +6,12 @@ router.get('/', async (req, res) => {
   try {
     const musicians = await fetchMusicians();
     const categories = await fetchCategories();
+
+    for (const musician of musicians) {
+      const muCat = await fetchCategoriesByMusicianId(musician.mid);
+      musician.categories = muCat.slice(0,2)
+    }
+
     res.render('musicians/index', {
       musicians: musicians,
       categories: categories,
