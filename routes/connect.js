@@ -5,23 +5,28 @@ const {fetchMusicians, fetchMusician, fetchMusicianId, createClient , createClie
 
 
 router.get('/', async (req, res) => {
-  const musicians = await fetchMusicians();
-  let filteredMusicians = musicians.map(musician => {
-    return {
-        mid: musician.mid,
-        name: musician.name
-    };
-  });
-  const musicianName = req.query.p
-  const navigationJSON = {
-    noteworthy : '/',
-    connect: '/connect'
+  try{
+    const musicians = await fetchMusicians();
+    let filteredMusicians = musicians.map(musician => {
+      return {
+          mid: musician.mid,
+          name: musician['name_' + req.lang]
+      };
+    });
+    const musicianName = req.query.p
+    const navigationJSON = {
+      noteworthy : '/',
+      connect: '/connect'
+    }
+    res.render('connect/index', {
+      musicianName: musicianName,
+      musicians: filteredMusicians,
+      navigation: navigationJSON
+    })
+  } catch(err) {
+    console.error(err)
   }
-  res.render('connect/index', {
-    musicianName: musicianName,
-    musicians: filteredMusicians,
-    navigation: navigationJSON
-  })
+
 })
 
 router.post('/submit',async (req, res) => {
