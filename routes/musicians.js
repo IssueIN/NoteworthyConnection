@@ -3,19 +3,13 @@ const router = express.Router()
 const { fetchMusicians, fetchCategories, fetchMusician, createMusician,fetchCategoriesByMusicianId } = require('../database')
 
 router.get('/', async (req, res) => {
-  const navigationJSON = {
-    noteworthy: '/',
-  }
-  const musicians_key = req.t('musicians')
-  navigationJSON[musicians_key] = '/musicians';
   try {
     const musicians = await fetchMusicians();
     const categories = await fetchCategories();
     res.render('musicians/index', {
       musicians: musicians,
       categories: categories,
-      lang: req.lang,
-      navigation: navigationJSON
+      lang: req.lang
     })
   } catch(err) {
     res.redirect('/')
