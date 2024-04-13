@@ -29,6 +29,11 @@
 
 <!-- <div><%- musician['achievements_' + lang].replace(/。/g, "。<br>") %></div> -->
 
+<!-- <div><a href="/connect?p=<%= musician['name_' + lang] %>">CONNECT!</a></div> -->
+<div class="musician--connect-button-container">
+  <%- include('../partials/connect-button', {href : "/connect?p=" + musician['name_' + lang] }) %>
+</div>
+
 <div class="musicianCategory">
   <ul class="musicianCategoryList">
     <% categories.forEach(category => { %>
@@ -38,5 +43,3 @@
     <% }) %>
   </ul>
 </div>
-
-<div><a href="/connect?p=<%= musician['name_' + lang] %>">CONNECT!</a></div>

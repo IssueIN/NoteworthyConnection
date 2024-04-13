@@ -116,6 +116,14 @@
   font-size: 0.8rem;
   margin-top: 1%;
 }
+
+.musician--connect-button-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 /* Responsive design */
 /* @media (max-width: 768px) {
   .musician--container1, .musician--container2 {
