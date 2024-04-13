@@ -10,21 +10,4 @@
   </ul>
 </div> -->
 
-<div class="musicians-cards-container">
-  <% musicians.forEach(musician => { %>
-    <a href='/musicians/<%= musician.mid %>' class="musicians-card-link musicians-card">
-      <img src="/img/musician-card-placeholder.png" alt="placeholder" class="musicians-card-img">
-      <div class="musicians-card-content">
-        <div class="--categories">
-          <% musician.categories.forEach(category => { %>
-            <span><%= category['name_' + lang] %></span>
-          <%}); %>
-        </div>
-        <div class="--styles"><%= t('styles') + musician['styles_' + lang] %></div>
-        <div class="--name"><%= musician['name_' + lang] %></div>
-        <div class="--ideology">"<%= musician['ideology_' + lang] %>"</div>
-        <div class="--education"><%= musician['education_' + lang] %></div>
-      </div>
-    </a>
-  <% }) %>
-</div>
+<%- include('../partials/musicians-cards')  %>
