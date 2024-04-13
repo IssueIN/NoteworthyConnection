@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: flex-start;
   background-color: #f1f1f1;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: -20px 10px 8px 0px rgba(0, 0, 0, 0.4);
   margin: 40px auto; /* Sets top and bottom margin to 20px, left and right to auto */
   padding: 30px;
   width: calc(100% - 60px);
