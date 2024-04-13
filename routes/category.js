@@ -25,17 +25,21 @@ router.get('/:id', async (req, res) => {
     const musicians = await fetchMusiciansByCategoryId(cid);
     const category = await fetchCategory(cid)
 
-    const navigationJSON = {
-      noteworthy: '/' 
-    };
-    const categories_key = req.t('categories')
-    navigationJSON[categories_key] = '/category';
-    navigationJSON[category['name_' + req.lang]] = `/category/${cid}`;
+    // const navigationJSON = {
+    //   noteworthy: '/' 
+    // };
+    // const categories_key = req.t('categories')
+    // navigationJSON[categories_key] = '/category';
+    // navigationJSON[category['name_' + req.lang]] = `/category/${cid}`;
+    for (const musician of musicians) {
+      const muCat = await fetchCategoriesByMusicianId(musician.mid);
+      musician.categories = muCat.slice(0,2)
+    }
 
     res.render('category/category', {
       category: category,
       musicians: musicians,
-      navigation: navigationJSON,
+      // navigation: navigationJSON,
       lang: req.lang
     })
   } catch (err) {
