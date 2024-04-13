@@ -1,9 +1,33 @@
-<h1><%= musician['name_' + lang] %></h1>
-<div><span><%= musician['education_' + lang] %></span></div>
-<div><span><%= t('skilledin') + musician['styles_' + lang] %></span></div>
-<div><span><%= musician['description_' + lang] %></span></div>
-<div><%- musician['achievements_' + lang].replace(/。/g, "。<br>") %></div>
-<div><span><%= musician['ideology_' + lang] %></span></div>
+<div class="musician--container1">
+  <div class="--left-section1">
+    <h1><%= musician['name_' + lang] %></h1>
+    <div class="musician--category">
+      <% musician.categories.forEach(category => { %>
+        <span><%= category['name_' + lang] %></span>
+      <%}); %>
+    </div>
+    <div class="musician--style"><%= t('skilledin') + musician['styles_' + lang] %></div>
+    <div class="musician--education"><%= musician['education_' + lang] %></div>
+    <div class="musician--ideology"><%= musician['ideology_' + lang] %></div>
+  </div>
+  <div class="--right-section1">
+    <img src="/img/250x400placeholder.png" alt="placeholder">
+  </div>
+</div>
+
+<div class="musician--container2">
+  <div class="--left-section2">
+    <img src="/img/250x400placeholder.png" alt="placeholder">
+  </div>
+  <div class="--right-section2">
+    <h1>Demo</h1>
+    <div class="player-placeholder"></div>
+    <div class="musician--aboutMe-title"><%= t('aboutMe') %></div>
+    <div class="musician--description"><%= musician['description_' + lang] %></div>
+  </div>
+</div>
+
+<!-- <div><%- musician['achievements_' + lang].replace(/。/g, "。<br>") %></div> -->
 
 <div class="musicianCategory">
   <ul class="musicianCategoryList">

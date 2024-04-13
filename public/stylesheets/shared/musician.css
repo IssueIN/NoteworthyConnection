@@ -1,0 +1,138 @@
+.musician--container1, .musician--container2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #f1f1f1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 40px auto; /* Sets top and bottom margin to 20px, left and right to auto */
+  padding: 30px;
+  width: calc(100% - 60px);
+  max-width: 1000px; /* This will ensure that the container doesn't stretch too wide */
+}
+
+@media (max-width: 1020px) { /* Adjust the max-width to include padding and margin if necessary */
+  .musician--container1, .musician--container2 {
+    width: auto; /* On smaller screens, allow the width to be automatic */
+    max-width: 100%; /* Allow the containers to take up full width */
+    margin: 20px 10px; /* Adjust margins for smaller screens if necessary */
+  }
+}
+
+.--left-section1, .--right-section2 {
+  flex: 1;
+  padding: 0 20px; 
+}
+
+.--left-section1,.--left-section2 {
+  padding-left: 10%
+}
+
+/* For the left section of the second container, where the image is */
+.--left-section2 {
+  flex: 0 0 250px; /* Fixed width for the image container */
+  padding-bottom: 40px;
+}
+
+/* For the right section of the first container */
+.--right-section1 {
+  flex: 0 0 250px; /* Fixed width for the image container */
+  text-align: center; /* Center content */
+  padding-right: 10%;
+  padding-left: 20px;
+}
+
+/* Image styling */
+.--right-section1 img, .--left-section2 img {
+  width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+}
+
+
+.musician--container1 h1 {
+  font-family: 'Chao Fan Zhan Jia';
+  font-size: 3.5rem;
+  margin: 0px;
+  color: black;
+}
+
+.musician--container2 h1 {
+  font-family: 'Chao Fan Zhan Jia';
+  font-size: 1.5rem;
+  margin: 0px;
+  color: black;
+}
+
+/* Text and spans */
+/* .musician--container1 div, .musician--container2 div,
+.musician--container1 span {
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 10px;
+} */
+
+.musician--category {
+  font-family: 'Chao Fan Zhan Jia';
+  font-size: 1.5rem;
+  margin-top: 5%;
+}
+
+.musician--style {
+  font-family: 'Chao Fan Zhan Jia';
+  font-size: 1.2rem;
+}
+
+.musician--education{
+  font-family: 'Chao Fan Zhan Jia';
+  font-size: 1.2rem;
+}
+
+.musician--ideology{
+  color: #666;
+  margin-top: 5%;
+  font-size: 0.8rem;
+}
+/* Special styling for category spans to display inline */
+/* .musician--container1 > div > span {
+  display: inline-block;
+  margin-right: 10px;
+} */
+
+/* Placeholder for music player */
+.player-placeholder {
+  width: 80%; /* Placeholder width */
+  height: 200px; /* Placeholder height */
+  background-color: #e0e0e0; /* Placeholder color */
+  margin-bottom: 20px; /* Space below placeholder */
+}
+
+.musician--aboutMe-title{
+  text-align: right;
+  font-family: 'Chao Fan Zhan Jia';
+  font-size: 1.2rem;
+}
+
+.musician--description{
+  color:#666;
+  font-size: 0.8rem;
+  margin-top: 1%;
+}
+/* Responsive design */
+/* @media (max-width: 768px) {
+  .musician--container1, .musician--container2 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .--left-section1, .--right-section2 {
+    padding: 0;
+    text-align: center; 
+  }
+
+  .left-section2, .--right-section1 {
+    width: 100%;
+  }
+
+  .player-placeholder {
+    height: 30px;
+  }
+} */
