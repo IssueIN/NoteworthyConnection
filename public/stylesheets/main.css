@@ -9,6 +9,7 @@
 @import 'shared/musicians.css';
 @import 'shared/musician.css';
 @import 'shared/connectButton.css';
+@import 'shared/connect.css';
 
 body {
   font-family: "Gill Sans";

@@ -1,37 +1,52 @@
-<h2>LETS CONNECT!</h2>
+<h2 class="connect-title">Let's CONNECT!</h2>
 
-<div>preferred musician: <%= musicianName ? musicianName : 'NOT SELECTED' %> &#9829;</div>
+<div class="connect-container">
+  <div class="connect-container-left">
+    <form action="/connect/submit" method="post">
+      <input type="text" name="name" placeholder="your name" required>
+      <input type="email" name="email" placeholder="your email" required>
+    
+      <div class="connect-musician-title">
+        <span>YOUR PREFERRED MUSICIAN</span>
+      </div>
+      <div id="musicianList">
+        <div class="musicianDropdown">
+          <select name="musicians[]">
+            <% musicians.forEach(musician => { %>
+              <option value="<%= musician.mid %>" 
+                <%= musicianName && musician.name === musicianName ? 'selected' : '' %>
+              >
+                <%= musician.name %>
+              </option>
+            <% }) %>
+          </select>
+          <button type="button" onclick="removeDropdown(this)">Remove</button>
+        </div>
+      </div>
+      <button type="button" onclick="addDropdown()">Add Musician</button>
+      <textarea name="message" placeholder="Your message" required></textarea>
 
-<form action="/connect/submit" method="post">
-  <div>REACH US!</div>
+      <div class="connect-button">
+        <button type="submit">
+          <span>CONNECT</span>
+          <span class="circle"></span>
+        </button>
+      </div>      
+    </form>
+  </div>
 
-  <input type="text" name="name" placeholder="your name" required>
-  <input type="email" name="email" placeholder="your email" required>
-
-  <div> </div>
-  <label>Your Preferred Musicians</label>
-  <div id="musicianList">
-    <div class="musicianDropdown">
-      <select name="musicians[]">
-        <% musicians.forEach(musician => { %>
-          <option value="<%= musician.mid %>" 
-            <%= musicianName && musician.name === musicianName ? 'selected' : '' %>
-          >
-            <%= musician.name %>
-          </option>
-        <% }) %>
-      </select>
-      <button type="button" onclick="removeDropdown(this)">Remove</button>
+  <div class="connect-container-right">
+    <div>
+      <div class="navi"><a href='/musicians'>MUSICIANS</a></div>
+      <div class="navi"><a href='/about-us'>ABOUT US</a></div>
+      <div>
+        <img src="/img/index_comment_section/5.png">
+      </div>
     </div>
   </div>
-  <button type="button" onclick="addDropdown()">Add Musician</button>
+</div>
 
-  <div> </div>
-  <textarea name="message" placeholder="Your message" required></textarea>
-  
-  <div> </div>
-  <button type="submit">CONNECT!</button>
-</form>
+<div class="connect-bottom-logo"><img src="/img/logo_text_black.png"></div>
 
 <div id="musiciansData" data-musicians='<%- JSON.stringify(musicians) %>' style="display: none;"></div>
 

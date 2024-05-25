@@ -14,14 +14,9 @@ router.get('/', async (req, res) => {
       };
     });
     const musicianName = req.query.p
-    const navigationJSON = {
-      noteworthy : '/',
-      connect: '/connect'
-    }
     res.render('connect/index', {
       musicianName: musicianName,
-      musicians: filteredMusicians,
-      navigation: navigationJSON
+      musicians: filteredMusicians
     })
   } catch(err) {
     console.error(err)
