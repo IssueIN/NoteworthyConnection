@@ -1,6 +1,23 @@
-<h2>CATEGORIES</h2>
+<!-- <h2>CATEGORIES</h2>
 <ul>
   <% categories.forEach(category => { %>
     <li><a href="/category/<%= category.cid %>"><%= category['name_' + lang] %></a></li>
     <% })%>
-</ul>
+</ul> -->
+
+<h2>CATEGORIES</h2>
+<div class="categories-container">
+  <% categories.forEach((category, index) => { %>
+    <% if (index < 6) { %>
+      <div class="category-block with-image">
+        <img src="/img/cat_icons/<%= category.name_en %>.png" alt="<%= category['name_' + lang] %>">
+        <a href="/category/<%= category.cid %>"><%= category['name_' + lang] %></a>
+      </div>
+    <% } else { %>
+      <div class="category-block">
+        <a href="/category/<%= category.cid %>"><%= category['name_' + lang] %></a>
+      </div>
+    <% } %>
+  <% }) %>
+</div>
+

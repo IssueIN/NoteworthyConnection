@@ -1,0 +1,28 @@
+.categories-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust the gap between blocks as needed */
+}
+
+.category-block {
+  padding: 10px;
+  text-align: center;
+  flex: 1 1 calc(25% - 20px); /* Four blocks in a row for the rest */
+  box-sizing: border-box;
+  box-shadow: 7.5px 10px 5px rgba(0, 0, 0, 0.5);
+  background-color: #f1f1f1;
+}
+
+.with-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 calc(33.33% - 20px); /* Three blocks in a row for the first 6 */
+}
+
+.with-image img {
+  max-width: 100px; /* Adjust the image size as needed */
+  margin-bottom: 10px;
+}
+
