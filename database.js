@@ -49,7 +49,7 @@ async function fetchCategories() {
 
 async function fetchPrimaryCategories() {
   try {
-    const [results] = await pool.query(`SELECT * FROM categories LIMIT 6`);
+    const [results] = await pool.query(`SELECT * FROM categories LIMIT 4`);
     return results;
   } catch (err) {
     console.error(`Error fetching categories: `, err)
