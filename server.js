@@ -8,7 +8,7 @@ const middleware = require('i18next-http-middleware')
 
 i18next.use(Backend).use(middleware.LanguageDetector)
   .init({
-    fallbacklang: 'en',
+    fallbacklang: 'zh',
     backend: {
       loadPath: __dirname + '/locales/{{lng}}/{{ns}}.json',
     },
