@@ -1,12 +1,26 @@
 .connect-title{
   padding-left: 5%;
-  margin-bottom: 5px;
+  margin-bottom:20;
 }
 
 .connect-container{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.connect-name-email-container{
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.connect-name-email-container > div{
+  margin-right: 20px;
+}
+
+.connect-name-email-container input{
+  border: none;
+  border-bottom: solid 1.5px black;
 }
 
 .connect-container-left{
@@ -39,7 +53,7 @@
   border: 1.8px solid black;
   border-radius: 8px;
   resize: none;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 
 .connect-container-right{
@@ -83,4 +97,59 @@
 .connect-bottom-logo img{
   width: 100%;
   height: auto;
+  margin-top: 35px;
+  margin-bottom: 15px;
+}
+
+
+
+#musicianList{
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.musicianDropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.musicianDropdown select {
+  width: auto;
+  padding: 5px;
+  border: none;
+  border-bottom: solid 1.5px black;
+  font-size: 1rem;
+}
+
+.musicianDropdown button {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: white;
+  /* border: 1.8px solid black;
+  border-radius: 50%; */
+  border:none;
+  padding: 0 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  
+  opacity: 0;
+  transition: opacity 0.3s ease; 
+}
+
+.musicianDropdown:hover button {
+  opacity: 1;
+}
+
+.addMusician-button {
+  width: auto;
+  padding: 8px;
+  border: 1.8px solid black;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  background-color: white;
+  margin-bottom: 25px
 }

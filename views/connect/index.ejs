@@ -3,15 +3,24 @@
 <div class="connect-container">
   <div class="connect-container-left">
     <form action="/connect/submit" method="post">
-      <input type="text" name="name" placeholder="your name" required>
-      <input type="email" name="email" placeholder="your email" required>
-    
+      <div class="connect-name-email-container">
+        <div>
+          <input type="text" name="name" placeholder=<%= t("yourName") %> required>
+        </div>
+        <div>
+          <input type="email" name="email" placeholder=<%= t("yourEmail") %> required>
+        </div>
+      </div>
+
       <div class="connect-musician-title">
         <span>YOUR PREFERRED MUSICIAN</span>
       </div>
       <div id="musicianList">
         <div class="musicianDropdown">
           <select name="musicians[]">
+            <option value="" disabled selected hidden>
+              请选择音乐人
+            </option>
             <% musicians.forEach(musician => { %>
               <option value="<%= musician.mid %>" 
                 <%= musicianName && musician.name === musicianName ? 'selected' : '' %>
@@ -20,10 +29,12 @@
               </option>
             <% }) %>
           </select>
-          <button type="button" onclick="removeDropdown(this)">Remove</button>
+          <button type="button" onclick="removeDropdown(this)">&#10005;</button>
         </div>
       </div>
-      <button type="button" onclick="addDropdown()">Add Musician</button>
+      <button class='addMusician-button' type="button" onclick="addDropdown()">
+        <%= t("addMusician") %>
+      </button>
       <textarea name="message" placeholder="Your message" required></textarea>
 
       <div class="connect-button">
@@ -46,7 +57,9 @@
   </div>
 </div>
 
-<div class="connect-bottom-logo"><img src="/img/logo_text_black.png"></div>
+<div class="connect-bottom-logo">
+  <img src="/img/logo_text_black.png">
+</div>
 
 <div id="musiciansData" data-musicians='<%- JSON.stringify(musicians) %>' style="display: none;"></div>
 

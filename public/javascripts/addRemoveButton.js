@@ -13,6 +13,14 @@ function addDropdown() {
   // Create select element
   const select = document.createElement('select');
   select.name = "musicians[]";
+
+  const defaultOption = document.createElement('option');
+  defaultOption.value = "";
+  defaultOption.disabled = true;
+  defaultOption.selected = true;
+  defaultOption.hidden = true;
+  defaultOption.textContent = "请选择音乐人";
+  select.appendChild(defaultOption);
   
   // Populate options dynamically using the musicians data
   musicians.forEach(musician => {
@@ -25,7 +33,7 @@ function addDropdown() {
   // Create remove button
   const button = document.createElement('button');
   button.type = "button";
-  button.textContent = "Remove";
+  button.textContent = "✕";
   button.onclick = function() {
     removeDropdown(button);
   };

@@ -11,5 +11,8 @@
   "manualTitle": "How to Use",
   "discoverMusicians": "Discover Musicians",
   "styles": "Styles: ",
-  "aboutMe": "About Me"
+  "aboutMe": "About Me",
+  "yourName": "Name",
+  "yourEmail": "Email",
+  "addMusician": "Add Musician"
 }
